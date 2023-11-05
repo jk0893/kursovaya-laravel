@@ -7,10 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>chopik.ru | Интернет-магазин компьютерной техники</title>
     <link rel="stylesheet" href="{{ asset('style.css') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/icons/apple-touch-icon') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/icons/favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/icons/favicon-16x16.png') }}">
-    <link rel="manifest" href="{{ asset('/site.webmanifest') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}">
 </head>
 
 <header class="header">
@@ -26,13 +23,13 @@
     <div class="header-right-side">
         <div class="bin-header">
             <a href="{{ route('bin.index') }}">
-                <img class="bin-icon-header" src="../../images/icons/bin-icon.png">
+                <img class="bin-icon-header" src="{{ asset('/images/icons/bin-icon.png') }}">
                 <div class="subtext">Kopзинa</div>
             </a>
         </div>
         <div class="avatar-header">
             <a href="#openModal">
-                <img class="avatar-icon-header" src="../../images/icons/avatar-icon.png">
+                <img class="avatar-icon-header" src="{{ asset('/images/icons/avatar-icon.png') }}">
                 <p class="subtext">Войти</p>
             </a>
         </div>
@@ -48,7 +45,7 @@
                 <a href="#close" title="Close" class="close">×</a>
             </div>
             <div class="modal-body">
-                <form class="modal-form" action="../../views/lk/lk-index.php">
+                <form class="modal-form" action="{{ route('auth.authorization') }}">
                     <nav class="modal-nav">
                         <div class="modal-inputs">
                             <label for="username">Логин:</label>

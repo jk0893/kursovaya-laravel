@@ -15,12 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('father_name')->nullable()->default('-');
-            $table->string('username')->unique();
-            $table->string('password');
+            $table->string('father_name')->default('-');
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->date('birth_date');
-            $table->string('passport');
-            $table->string('phone');
+            $table->string('passport')->unique;
+            $table->string('phone')->unique;
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +30,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('employees', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('user_id');
+        });
         Schema::dropIfExists('employees');
     }
 };

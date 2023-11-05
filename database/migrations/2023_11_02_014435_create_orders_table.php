@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id()->unsigned();
-            // $table->foreign('products_id')->cascadeOnDelete()->cascadeOnDelete()->constrained('products');
-            // $table->foreign('clients_id')->cascadeOnDelete()->cascadeOnDelete()->constrained('clients');
+            $table->text('address');
+            $table->foreignId('product_id')->constrained();
+            $table->foreignId('client_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -25,12 +26,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('product_id');
+            $table->dropConstrainedForeignId('client_id');
+        });
         Schema::dropIfExists('orders');
-        // $table->dropForeign('orders_products_id_foreign');
-        // $table->dropForeign('orders_clients_id_foreign');
-        // $table->dropIndex('orders_products_id_index');
-        // $table->dropIndex('orders_clients_id_index');
-        // $table->dropColumn('products_id');
-        // $table->dropColumn('clients_id');
     }
 };

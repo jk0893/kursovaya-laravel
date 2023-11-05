@@ -6,7 +6,7 @@
             <nav class="main-content-nav">
                 <h1>Kaтeгopии товаров</h1>
                 <div class="product-categories">
-                    <a class="carto4ka" href="../views/catalogue/catalogue-index.php">
+                    <a class="carto4ka" href="{{ route('product.index') }}">
                         <div class="gpu">
                             <p class="subtext-cards">Видеокарты</p>
                         </div>
@@ -14,7 +14,7 @@
 
                     <a class="carto4ka" href="../views/catalogue/catalogue-index.php">
                         <div class="mb">
-                            <p class="subtext-cards">Материнские<br>платы</p>
+                            <p class="subtext-cards">Материнские платы</p>
                         </div>
                     </a>
 
@@ -26,7 +26,7 @@
 
                     <a class="carto4ka" href="./views/catalogue/catalogue-index.php">
                         <div class="ram">
-                            <p class="subtext-cards">Оперативная<br>память</p>
+                            <p class="subtext-cards">Оперативная память</p>
                         </div>
                     </a>
 

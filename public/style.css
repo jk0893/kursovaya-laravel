@@ -14,9 +14,9 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-}s
+}
 
-html,
+s html,
 body {
     height: 100%;
 }
@@ -34,6 +34,58 @@ a {
     color: var(--text-color);
 }
 
+input[type=file] {
+    padding-top: 0.5rem;
+    white-space: normal;
+    word-wrap: break-word;
+    width: 12.5rem;
+    overflow: auto;
+}
+
+select{
+    font-size: 1rem;
+    color: var(--text-color);
+    border: transparent;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
+    border-radius: 1rem;
+    max-width: 15rem;
+    padding: 0.5rem;
+    text-align: center;
+    appearance: none;
+}
+
+option:checked,
+option:hover{
+    background-color: rgba(183, 118, 0, 0.5);
+}
+
+option[value="4"]{
+    border-radius: 1rem 1rem 0 0;
+    padding: 0.5rem;
+}
+option[value="3"]{
+    border-radius: 0rem;
+    padding: 0.5rem;
+}
+option[value="2"]{
+    border-radius: 0rem;
+    padding: 0.5rem;
+}
+option[value="1"]{
+    padding: 0.5rem;
+    border-radius: 0 0 1rem 1rem;
+}
+
+.pagination-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+.pagination-object{
+    color: var(--text-color);
+}
 /*----------text-settings------------*/
 
 .logo-text-header {
@@ -161,13 +213,15 @@ a {
 }
 
 @media (min-width: 576px) {
-    .modal-dialog{
+    .modal-dialog {
         max-width: 25rem;
         margin: 1.875rem auto;
     }
 }
 
-.modal-content, .card-authreg-section, .create-form-section {
+.modal-content,
+.card-authreg-section,
+.create-form-section {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -185,7 +239,7 @@ a {
     outline: 0;
 }
 
-.modal-content{
+.modal-content {
     position: relative;
 }
 
@@ -196,7 +250,9 @@ a {
     }
 }
 
-.modal-header,.card-authreg-header, .create-form-header{
+.modal-header,
+.card-authreg-header,
+.create-form-header {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -209,7 +265,7 @@ a {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    padding: .9375rem;
+    padding: 1rem;
     border-bottom: 0.0625rem solid var(--text-color);
 }
 
@@ -223,7 +279,9 @@ a {
     font-family: Jost, sans-serif;
 }
 
-.modal-body, .card-authreg-body, .create-form-body{
+.modal-body,
+.card-authreg-body,
+.create-form-body {
     position: relative;
     -webkit-box-flex: 1;
     -webkit-flex: 1 1 auto;
@@ -251,11 +309,14 @@ a {
     flex-direction: column;
 }
 
-.modal-nav input, .card-authreg-nav input, .create-form-nav input {
+.modal-nav input,
+.card-authreg-nav input,
+.create-form-nav input {
     border: transparent;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
     border-radius: 1rem;
     padding-left: 1rem;
+    padding-right: 1rem;
     margin-top: 0.5rem;
     background-color: transparent;
     outline: none;
@@ -267,14 +328,19 @@ a {
     transition: all 0.125s ease-in-out;
 }
 
-.modal-nav input:focus, .card-authreg-nav input:focus, .create-form-nav input:focus {
+.modal-nav input:focus,
+.card-authreg-nav input:focus,
+.create-form-nav input:focus {
     outline-offset: 0px;
     outline: none;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transform: scale(105%);
 }
 
-.modal button, .card-authreg-body button, .create-form-body button, .create-form-footer button {
+.modal button,
+.card-authreg-body button,
+.create-form-body button,
+.create-form-footer button {
     padding: 0.5rem 0.75rem;
     background: transparent;
     border: transparent;
@@ -286,22 +352,32 @@ a {
     transition: all 0.125s ease-in;
 }
 
-.card-authreg-body button, .create-form-body button, .create-form-footer button {
+.card-authreg-body button,
+.create-form-body button,
+.create-form-footer button {
     font-size: 1.25rem;
     padding: 0.75rem 1rem;
 }
 
-.modal button:hover, .card-authreg-body button:hover, .create-form-body button:hover, .create-form-footer button:hover{
+.modal button:hover,
+.card-authreg-body button:hover,
+.create-form-body button:hover,
+.create-form-footer button:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transform: scale(105%);
 }
 
-.modal button:active, .card-authreg-body button:active, .create-form-body button:active, .create-form-footer button:active{
+.modal button:active,
+.card-authreg-body button:active,
+.create-form-body button:active,
+.create-form-footer button:active {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     transform: scale(115%);
 }
 
-.modal-footer, .card-authreg-footer, .create-form-footer {
+.modal-footer,
+.card-authreg-footer,
+.create-form-footer {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -314,23 +390,24 @@ a {
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: center;
-    padding: .9375rem;
+    padding: 1.5rem 1rem;
     border-top: 0.0625rem solid var(--text-color);
 }
 
-.modal-footer a, .card-authreg-footer a{
+.modal-footer a,
+.card-authreg-footer a {
     transition: all .15s;
 }
 
-.card-authreg-footer a{
+.card-authreg-footer a {
     transform: scale(110%);
 }
 
-.modal-footer a:hover{
+.modal-footer a:hover {
     transform: scale(115%);
 }
 
-.card-authreg-footer a:hover{
+.card-authreg-footer a:hover {
     transform: scale(125%);
 }
 
@@ -379,6 +456,7 @@ a {
 .product-categories {
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
     padding: 3.63rem 3.63rem 13.32rem 3.63rem;
     /*верх-право-низ-лево*/
     column-gap: 4.21rem;
@@ -386,7 +464,8 @@ a {
     justify-content: center;
 }
 
-.carto4ka>div {
+.carto4ka>div,
+.carto4ka-CRUD>div {
     text-align: center;
     min-width: 21.142rem;
     min-height: 11.80019rem;
@@ -477,7 +556,7 @@ a {
 .kb,
 .mouse,
 .premades {
-    transition: all .2s ease-in-out;
+    transition: all .35s ease-in-out;
 }
 
 .gpu:hover,
@@ -493,53 +572,88 @@ a {
 .mouse:hover,
 .premades:hover {
     border-radius: 4rem;
-    filter: brightness(50%);
 }
 
-.carto4ka>div>p {
+.carto4ka>div>p,
+.carto4ka-CRUD>div>p {
+    -webkit-text-stroke: 0.5px var(--footer-color);
+    font-size: 1.5rem;
+    font-weight: 700;
     display: none;
-    transition: all .2s ease-in;
-    filter: brightness(100%);
 }
 
-.carto4ka:hover>div>p {
+.carto4ka:hover>div>p,
+.carto4ka-CRUD:hover>div>p {
     display: block;
     animation-duration: .35s;
-    animation-name: fadein;
+    animation-name: fadein, slideDown;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slideDown {
+    from {
+        padding-top: 0rem;
+    }
+
+    to {
+        padding-top: 3.5rem;
+    }
 }
 
 @keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Firefox < 16 */
 @-moz-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Safari, Chrome and Opera > 12.1 */
 @-webkit-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Internet Explorer */
 @-ms-keyframes fadein {
-    from { opacity: 0; }
-    to   { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /*-------------------Reg/Auth----------------------*/
 
-.card-authreg-header, .create-form-header{
+.card-authreg-header,
+.create-form-header {
     -webkit-justify-content: center;
     -ms-flex-pack: justify;
     justify-content: center;
 }
 
-.card-authreg-title, .create-form-title {
+.card-authreg-title,
+.create-form-title {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 1.5;
@@ -549,12 +663,14 @@ a {
     font-family: Jost, sans-serif;
 }
 
-.card-authreg-body, .create-form-body {
+.card-authreg-body,
+.create-form-body {
     min-width: 35rem;
     font-size: 1.5rem;
 }
 
-.card-authreg-nav, .create-form-nav {
+.card-authreg-nav,
+.create-form-nav {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -562,11 +678,13 @@ a {
     gap: 1rem;
 }
 
-.card-authreg-nav label, .create-form-nav label {
+.card-authreg-nav label,
+.create-form-nav label {
     text-align: left;
 }
 
-.card-authreg-nav input, .card-authreg-nav input {
+.card-authreg-nav input,
+.card-authreg-nav input {
     outline: none;
     font-size: 1.5rem;
     max-width: 25rem;
@@ -575,7 +693,9 @@ a {
 }
 
 .card-authreg-nav input,
-label, .card-authreg-nav input, label {
+label,
+.card-authreg-nav input,
+label {
     color: var(--text-color);
 }
 
@@ -589,10 +709,10 @@ label, .card-authreg-nav input, label {
     align-content: center;
 }
 
-.card {
-    min-width: auto;
-    min-height: 41.4375rem;
-    padding: 5rem 10rem 7.5rem 10rem;
+.card, .card-lk{
+    max-width: 65rem;
+    max-height: 40rem;
+    padding: 5rem 7.5rem 10rem 7.5rem;
     /*верх-право-низ-лево*/
     border-radius: 2.1875rem;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -629,8 +749,9 @@ label, .card-authreg-nav input, label {
 .info {
     display: flex;
     padding-top: 7.25rem;
+    padding-bottom: 3.25rem;
     justify-content: space-between;
-    gap: 15rem;
+    gap: 10rem;
     font-size: 2rem;
 }
 
@@ -657,4 +778,24 @@ label, .card-authreg-nav input, label {
 .bin-icon {
     max-width: 9.375rem;
     max-height: 9.375rem;
+}
+
+/* ---------------------CRUD Panels----------------------- */
+
+.main-content-nav .buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.button{
+    font-size: 1.25rem;
+    color: var(--text-color);
+    background-color: transparent;
+    border: transparent;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
+    border-radius: 1rem;
+    padding: 0.5rem 0.75rem;
 }

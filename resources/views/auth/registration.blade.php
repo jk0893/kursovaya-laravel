@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="card-authreg-body">
-                        <form class="card-authreg-form" action="/authorization.php" method="POST">
+                        <form class="card-authreg-form" action="{{ route('auth.registrate') }}" method="POST">
                             <nav class="card-authreg-nav">
                                 <label class="modal-inputs" for="second-name">Фамилия:</label>
                                 <input type="text" name="second-name" required pattern="[A-Za-zА-Яа-яЁё]" min="5"
@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="card-authreg-footer">
-                        <a href="{{ route('auth.authorization') }}">Уже есть аккант? - Авторизуйтесь</a>
+                        <a href="{{ route('auth.authorization') }}">Уже есть аккант?</a>
                     </div>
 
                 </div>

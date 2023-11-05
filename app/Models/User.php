@@ -8,7 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\User;
 
 class User extends Authenticatable
 {
@@ -21,6 +20,17 @@ class User extends Authenticatable
      */
     protected $guarded = [];
 
+    public function role(){
+        return $this->belongsTo(Role::class, 'role_id', 'id');
+    }
+
+    public function employees(){
+        return $this->hasMany(Employee::class,'user_id','id');
+    }
+
+    public function clients(){
+        return $this->hasMany(Client::class,'user_id','id');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

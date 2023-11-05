@@ -11,4 +11,12 @@ class Order extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = [];
+
+    public function clients(){
+        return $this->belongsToMany(Client::class, "client_orders", 'order_id', 'client_id');
+    }
+
+    public function products(){
+        return $this->belongsToMany(Product::class, "order_products", 'order_id', 'product_id');
+    }
 }

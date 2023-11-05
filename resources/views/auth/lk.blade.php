@@ -5,7 +5,7 @@
         <section class="main-content">
             <nav class="main-content-nav">
                 <div class="user-info">
-                    <div class="card">
+                    <div class="card-lk">
                         <div class="user">
                             <img class="avatar-icon-lk" src="../../images/avatar-placeholder.png">
                             <h1>username</h1>
@@ -28,6 +28,7 @@
                         </div>
                     </div>
                 </div>
+                
             </nav>
         </section>
     </body>

@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -15,7 +14,9 @@ return new class extends Migration
             $table->id();
             $table->text('name')->unique();
             $table->unsignedInteger('count');
-            // $table->foreign('categories_id')->cascadeOnDelete()->cascadeOnDelete()->constrained('categories');
+            $table->unsignedInteger('price');
+            $table->text('image')->nullable();
+            $table->foreignId('category_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -26,9 +27,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('category_id');
+        });
         Schema::dropIfExists('products');
-        // $table->dropForeign('products_category_id_foreign');
-        // $table->dropIndex('products_category_id_index');
-        // $table->dropColumn('category_id');
     }
 };

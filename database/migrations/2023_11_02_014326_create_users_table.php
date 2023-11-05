@@ -15,20 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('username')->unique();
             $table->string('password');
-            $table->text('avatar')->nullable();
-            // $table->foreign('clients_id')->cascadeOnUpdate()->cascadeOnDelete()->constrained('clients');
+            $table->text('user_avatar')->nullable();
+            $table->foreignId('role_id')->constrained();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
         });
-
-        DB::table('users')->insert(
-            array(
-                'username'=>'testusername',
-                'password'=>'testpassword',
-                'avatar'=>'testavatarpath'
-            )
-        );
     }
 
     /**
@@ -36,8 +28,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropConstrainedForeignId('role_id');
+        });
         Schema::dropIfExists('users');
-        // $table->dropForeign('users_clients_id_foreign');
-        // $table->dropColumn('clients_id');
     }
 };

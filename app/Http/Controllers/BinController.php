@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Order;
 
 class BinController extends Controller
 {
     public function getAll(){
-        return view('bin.index');
+        $bin = Order::all();
+        return view('bin.index', compact('bin'));
     }
 
     public function create(){

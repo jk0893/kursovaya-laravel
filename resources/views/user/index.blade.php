@@ -4,20 +4,25 @@
     <body>
         <section class="main-content">
             <nav class="main-content-nav">
+                <div class="buttons">
+                    <a class="button" href="{{ route('user.create') }}">Добавить пользователя</a>
+                </div>
                 <div class="product-categories">
                     @foreach ($users as $user)
-                    <a href="{{ route('user.show', $user->id) }}" class="carto4ka-users">
-                        <div>
-                            <p>{{ $user->username }}</p>
-                        </div>
-                    </a>
+                        <a href="{{ route('user.show', $user->id) }}"
+                            style="background: src('{{ asset($user->user_avatar) }}')" class="carto4ka-CRUD">
+                            <div class="image">
+                                <p>{{ $user->username }}</p>
+                            </div>
+                        </a>
                     @endforeach
-                </div>
             </nav>
+            <div class="pagination-container">
+                <div class="pagination-object">
+                    {{ $users->links() }}
+                </div>
+            </div>
         </section>
+
     </body>
-    <div>
-        
-        
-    </div>
 @endsection
