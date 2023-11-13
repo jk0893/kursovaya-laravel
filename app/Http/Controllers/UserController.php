@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserStoreRequest;
-use App\Http\Requests\UserUpdateRequest;
+use App\Http\Requests\User\StoreRequest;
+use App\Http\Requests\User\UpdateRequest;
 use App\Models\User;
 use App\Models\Role;
 
@@ -21,7 +21,7 @@ class UserController extends Controller
         return view('user.create', compact('roles'));
     }
 
-    public function store(UserStoreRequest $request)
+    public function store(StoreRequest $request)
     {
         $data = $request->validated();  
         User::create($data);
@@ -38,7 +38,7 @@ class UserController extends Controller
         return view('user.edit', compact ('user', 'roles'));
     }
 
-    public function update(UserUpdateRequest $request, User $user){
+    public function update(UpdateRequest $request, User $user){
         $data = $request->validated();
         $user->update($data);
         return redirect()->route('user.show', $user->id);

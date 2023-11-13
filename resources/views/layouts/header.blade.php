@@ -8,6 +8,7 @@
     <title>chopik.ru | Интернет-магазин компьютерной техники</title>
     <link rel="stylesheet" href="{{ asset('style.css') }}">
     <link rel="shortcut icon" type="image/png" href="{{ asset('images/icons/favicon.ico') }}">
+
 </head>
 
 <header class="header">
@@ -28,10 +29,17 @@
             </a>
         </div>
         <div class="avatar-header">
-            <a href="#openModal">
-                <img class="avatar-icon-header" src="{{ asset('/images/icons/avatar-icon.png') }}">
-                <p class="subtext">Войти</p>
-            </a>
+            @if (Auth::check())
+                <a href="#openModalAuth">
+                    <img class="avatar-icon-header" src="{{ asset('/images/icons/avatar-icon.png') }}">
+                    <p class="subtext">{{ Auth::user()->username }}</p>
+                </a>
+            @else
+                <a href="#openModal">
+                    <img class="avatar-icon-header" src="{{ asset('/images/icons/avatar-icon.png') }}">
+                    <p class="subtext">Войти</p>
+                </a>
+            @endif
         </div>
     </div>
 </header>
@@ -45,30 +53,67 @@
                 <a href="#close" title="Close" class="close">×</a>
             </div>
             <div class="modal-body">
-                <form class="modal-form" action="{{ route('auth.authorization') }}">
-                    <nav class="modal-nav">
-                        <div class="modal-inputs">
-                            <label for="username">Логин:</label>
-                            <input type="text" name="username" id="username" required pattern="/^[Aa-Zz\d]+$/i" min="5" max="30"
-                                oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
-                        </div>
-                        <div class="modal-inputs">
-                            <label for="password">Пароль:</label>
-                            <input type="text" name="password" id="password" required pattern="/^[Aa-Zz\d]+$/i" min="5" max="30"
-                                oninput="setCustomValidity('Логин должен содержать латинские буквы, цифры и/или символы, их дожно быть не менее 5 символов и не более 30-ти.')">
-                        </div>
-                        <button type="submit">Войти</button>
-                    </nav>
-                </form>
+                @if (Route::has('login'))
+                    <form class="modal-form" action="{{ route('login') }}">
+                        <nav class="modal-nav">
+                            <div class="modal-inputs">
+                                <label for="username">Логин:</label>
+                                <input type="text" name="username" id="username" required min="5"
+                                    max="30">
+                            </div>
+                            <div class="modal-inputs">
+                                <label for="password">Пароль:</label>
+                                <input type="text" name="password" id="password" required min="5"
+                                    max="30">
+                            </div>
+                            <button type="submit">Войти</button>
+                        </nav>
+                    </form>
+                @endif
             </div>
-            <div class="modal-footer">
-                <a href="{{route('auth.registration')}}">Нет аккаунта?</a>
-            </div>
+            @if (Route::has('register'))
+                <div class="modal-footer">
+                    <a href="{{ route('register') }}">Нет аккаунта?</a>
+                </div>
+            @endif
         </div>
     </div>
 </div>
 
+@if(Auth::check())
+<div id="openModalAuth" class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">{{ Auth::user()->username }}</h3>
+                <a href="#close" title="Close" class="close">×</a>
+            </div>
+            <div class="modal-body">
+                @if (Route::has('login'))
+                    <form class="modal-form" action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <nav class="modal-nav" style="margin-top: 1rem; gap: 1.5rem;">
+
+                            <a style="display:flex;flex-flow: row nowrap; justify-content: center; align-items: center; gap: 1rem; scale: 1.2"
+                                href="{{ route('auth.lk') }}"><img src="{{ asset('images/icons/house-solid.svg') }}"
+                                    width="20px"
+                                    style="filter: invert(43%) sepia(27%) saturate(3380%) hue-rotate(22deg) brightness(93%) contrast(101%);">
+                                Личный кабинет</a>
+                            <button type="submit">Выйти</button>
+                        </nav>
+                    </form>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+@endif
 @yield('main-content')
 
-<footer class="footer"><p>Сайт разработан студентом группы ИС-20-1 Мамонцевым Александром в учебных целях и не является коммерческим проектом.<p></footer>
+<footer class="footer">
+    <p>Сайт разработан студентом группы ИС-20-1 Мамонцевым Александром в учебных целях и не является коммерческим
+        проектом.
+    <p>
+</footer>
+
 </html>

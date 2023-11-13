@@ -2,18 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProductStoreRequest;
-use App\Http\Requests\ProductUpdateRequest;
+use App\Http\Requests\Product\StoreRequest;
+use App\Http\Requests\Product\UpdateRequest;
+use App\Http\Requests\Product\FilterRequest;
+use App\Http\Filters\ProductFilter;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Order;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function getAll()
+    public function getAll(FilterRequest $request)
     {
-        $products = Product::paginate(12);
-        return view('product.index', compact('products'));
+        // $products = Product::paginate(12);
+        // return view("product.index", compact("products"));
+
+        $data = $request->validated();
+        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
+        $products = Product::filter($$filter)->paginate(12);
+        dd($products);
     }
 
     public function create()
@@ -22,7 +30,7 @@ class ProductController extends Controller
         return view('product.create', compact('categories'));
     }
 
-    public function store(ProductStoreRequest $request)
+    public function store(StoreRequest $request)
     {
         $data = $request->validated();
         Product::create($data);
@@ -40,7 +48,7 @@ class ProductController extends Controller
         return view('product.edit', compact('product', 'categories'));
     }
 
-    public function update(Product $product, ProductUpdateRequest $request)
+    public function update(Product $product, UpdateRequest $request)
     {
         $data = $request->validated();
         $product->update($data);

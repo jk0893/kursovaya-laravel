@@ -1,5 +1,4 @@
 /*--------global-settings------*/
-
 :root {
     --background-color: #f0f0f0;
     --header-background-color: #fad9a6;
@@ -13,10 +12,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
 }
 
-s html,
+html,
 body {
     height: 100%;
 }
@@ -32,6 +30,7 @@ h1 {
 a {
     font-size: 1rem;
     color: var(--text-color);
+    text-decoration: none;
 }
 
 input[type=file] {
@@ -76,16 +75,6 @@ option[value="1"]{
     border-radius: 0 0 1rem 1rem;
 }
 
-.pagination-container{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100vw;
-}
-.pagination-object{
-    color: var(--text-color);
-}
 /*----------text-settings------------*/
 
 .logo-text-header {
@@ -790,6 +779,10 @@ label {
     gap: 1rem;
 }
 
+.buttons{
+    transform:translateY(2rem);
+}
+
 .button{
     font-size: 1.25rem;
     color: var(--text-color);
@@ -799,3 +792,40 @@ label {
     border-radius: 1rem;
     padding: 0.5rem 0.75rem;
 }
+
+/* --------------------Пагинация-------------------- */
+
+.pagination > li > a, .pagination > li > span { 
+    color: var(--text-color);
+    font-size: 1.25rem;
+    padding: .4rem 1rem;
+}
+
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover, 
+.pagination > .disabled > a ,
+.pagination > .disabled > li > span ,
+.pagination > .disabled > a:focus,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > li > span:focus,
+.pagination > .disabled > li > span:hover{ 
+    background-color: var(--text-color);
+    border-color: var(--text-color);
+    color: white;
+}
+
+.pagination-container{
+    display: flex;
+    transform: translateY(-5rem);
+    flex-direction: column wrap;
+    justify-content: center;
+}
+
+/* ----------------------------LK------------------------------  */
+
+#openModalAuth > .modal-nav 

@@ -19,7 +19,7 @@
         </nav>
         <div class="pagination-container">
             <div class="pagination-object">
-                {{ $products->links() }}
+                {{ $products->withQueryString()->links() }}
             </div>
         </div>
     </section>

@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 // --------------------------Main-Page--------------------
 
-// Route::get('/','App\Http\Controllers\MainController@getAll')->name('main.index');
-Route::get('/','App\Http\Controllers\HomeController@index')->name('home.index');
+Route::get('/','App\Http\Controllers\MainController@getAll')->name('main.index');
 
 // --------------------------Users--------------------
 
@@ -65,10 +64,5 @@ Route::patch('/bin/{product}','App\Http\Controllers\BinController@update')->name
 Route::delete('/bin/{product}','App\Http\Controllers\BinController@destroy')->name('bin.delete');
 
 // --------------------------Auth--------------------
-
-Route::get('/registration','App\Http\Controllers\AuthController@registration')->name('auth.registration');
-Route::get('/authorization','App\Http\Controllers\AuthController@authorization')->name('auth.authorization');
-Route::get('/lk','App\Http\Controllers\AuthController@lk')->name('auth.lk');
+Route::get('/lk', 'App\Http\Controllers\AuthController@lk')->name('auth.lk');
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

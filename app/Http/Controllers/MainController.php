@@ -9,4 +9,9 @@ class MainController extends Controller
     public function getAll(){
         return view('main.index');
     }
+
+    public function test()
+    {
+        return view('admin-panel.index');
+    }
 }

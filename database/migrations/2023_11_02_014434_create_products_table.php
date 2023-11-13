@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->text('name')->unique();
             $table->unsignedInteger('count');
             $table->unsignedInteger('price');
-            $table->text('image')->nullable();
+            $table->string('image')->nullable();
             $table->foreignId('category_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
