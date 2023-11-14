@@ -12,7 +12,8 @@
                         </div>
 
                         <div class="card-authreg-body">
-                            <form class="card-authreg-form" action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                            <form class="card-authreg-form" action="{{ route('register') }}" method="POST"
+                                enctype="multipart/form-data">
                                 @csrf
                                 <nav class="card-authreg-nav">
                                     <label class="modal-inputs" for="last-name">Фамилия:</label>
@@ -27,7 +28,7 @@
 
                                     <label class="modal-inputs" for="first-name">Имя:</label>
                                     <input name="first-name" class="form-control @error('first_name') is-invalid @enderror"
-                                        type="text" name="first-name" required min="5" max="25">
+                                        type="text" required min="5" max="25">
 
                                     @error('first-name')
                                         <span class="invalid-feedback subtext" role="alert">
@@ -38,7 +39,7 @@
                                     <label class="modal-inputs" for="father-name">Отчество:</label>
                                     <input name="father-name"
                                         class="form-control @error('father_name') is-invalid @enderror" type="text"
-                                        name="father-name" min="5" max="30">
+                                        min="5" max="30">
 
                                     @error('father-name')
                                         <span class="invalid-feedback subtext" role="alert">
@@ -46,37 +47,41 @@
                                         </span>
                                     @enderror
 
-                                    <label class="modal-inputs" for="username">Логин:</label>
-                                    <input name="username" class="form-control @error('username') is-invalid @enderror"
-                                        type="text" name="username" required min="5">
-                                    <!-- \w соответствует любой латинской букве, цифре и знаку препинания -->
+                                    <label class="modal-inputs" for="name">Логин:</label>
+                                    <input id="name" type="text"
+                                        class="form-control @error('name') is-invalid @enderror" name="name"
+                                        value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                                    @error('username')
-                                        <span class="invalid-feedback subtext" role="alert">
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+
+                                    <label class="modal-inputs" for="email">Адрес почты:</label>
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email">
+
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
                                     <label class="modal-inputs" for="password">Пароль:</label>
-                                    <input name="password" class="form-control @error('password') is-invalid @enderror"
-                                        type="password" name="password" required min="5">
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="new-password">
 
                                     @error('password')
-                                        <span class="invalid-feedback subtext" role="alert">
+                                        <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
-                                    {{-- <label class="modal-inputs" for="password-confirm">Подтверждение пароля:</label>
-                                    <input name="password-confirm"
-                                        class="form-control @error('password-confirm') is-invalid @enderror" type="password"
-                                        name="password-confirm" required min="5">
-
-                                    @error('password-confirm')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror --}}
+                                    <label class="modal-inputs" for="password-confirm">Подтверждение пароля:</label>
+                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
 
                                     <label class="modal-inputs" for="birth-date">Дата рождения:</label>
                                     <input name="birth-date" class="form-control @error('birth-date') is-invalid @enderror"
@@ -91,8 +96,7 @@
                                     <label class="modal-inputs" for="phone-number">Номер телефона:</label>
                                     <input name="phone-number"
                                         class="form-control @error('phone-number') is-invalid @enderror" type="text"
-                                        required
-                                        min="11" max="12">
+                                        required min="11" max="12">
 
                                     @error('phone-number')
                                         <span class="invalid-feedback" role="alert">

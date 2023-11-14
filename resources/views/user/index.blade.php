@@ -5,11 +5,11 @@
     <section class="main-content">
         <nav class="main-content-nav">
             <div class="buttons">
-                <a class="button" href="{{ route('user.create') }}">Добавить пользователя</a>
+                <a class="button" href="{{ route('admin.user.create') }}">Добавить пользователя</a>
             </div>
             <div class="product-categories">
                 @foreach ($users as $user)
-                <a href="{{ route('user.show', $user->id) }}" style="background: src('{{ asset($user->user_avatar) }}')"
+                <a href="{{ route('admin.user.show', $user->id) }}" style="background: src('{{ asset($user->user_avatar) }}')"
                     class="carto4ka-CRUD">
                     <div class="image">
                         <p>{{ $user->username }}</p>

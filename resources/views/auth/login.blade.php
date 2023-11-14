@@ -1,5 +1,6 @@
 @extends('layouts.header')
 @section('main-content')
+
     <body>
         <section class="main-content">
             <div class="user-info">
@@ -11,29 +12,31 @@
                         </div>
 
                         <div class="card-authreg-body">
-                            <form class="card-authreg-form" action="{{ route('login') }}" method="POST">
+                            <form method="POST" action="{{ route('login') }}" class="card-authreg-form"
+                                enctype="multipart/form-data">
                                 @csrf
+
                                 <nav class="card-authreg-nav">
-                                    <label class="modal-inputs" for="username">Логин:</label>
-                                    <input class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}" type="text" name="username" id="username" required
-                                        min="5" max="30"
-                                        title="Логин должен содержать латинские буквы, цифры и символы, их дожно быть не менее 5 символов и не более 30-ти.">
-                                    @error('username')
-                                        <span class="invalid-feedback subtext" role="alert">
+                                    <label class="modal-inputs" for="email">Адрес почты:</label>
+                                    <input id="email" type="email"
+                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
 
                                     <label class="modal-inputs" for="password">Пароль:</label>
-                                    <input class="form-control @error('password') is-invalid @enderror" value="{{ old('password') }}" type="text" name="password" id="password" required
-                                        min="5" max="30"
-                                        title="Пароль должен содержать латинские буквы, цифры и символы, их дожно быть не менее 5 символов и не более 30-ти.">
+                                    <input id="password" type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        required autocomplete="current-password">
+
                                     @error('password')
-                                        <span class="invalid-feedback subtext" role="alert">
+                                        <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-
 
                                     <button class="subtext button" type="submit">Войти</button>
                                 </nav>

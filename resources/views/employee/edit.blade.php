@@ -12,7 +12,7 @@
                         </div>
 
                         <div class="create-form-body">
-                            <form class="create-form-form" action="{{ route('employee.update', $employee->id) }}" method="POST">
+                            <form class="create-form-form" action="{{ route('admin.employee.update', $employee->id) }}" method="POST">
                                 @csrf
                                 @method('patch')
                                 <nav class="create-form-nav">

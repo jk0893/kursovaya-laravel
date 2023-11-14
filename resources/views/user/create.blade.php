@@ -12,7 +12,7 @@
                         </div>
 
                         <div class="create-form-body">
-                            <form class="create-form-form" action="{{ route('user.store') }}" method="POST">
+                            <form class="create-form-form" action="{{ route('admin.user.store') }}" method="POST">
                                 @csrf
                                 <nav class="create-form-nav">
                                     <label class="modal-inputs" for="username">Логин:</label>

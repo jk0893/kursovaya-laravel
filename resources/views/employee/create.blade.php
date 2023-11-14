@@ -12,7 +12,7 @@
                         </div>
 
                         <div class="create-form-body">
-                            <form class="create-form-form" action="{{ route('employee.store') }}" method="POST">
+                            <form class="create-form-form" action="{{ route('admin.employee.store') }}" method="POST">
                                 @csrf
                                 <nav class="create-form-nav">
                                     <label class="modal-inputs" for="last_name">Фамилия</label>
@@ -32,13 +32,7 @@
 
                                     <label class="modal-inputs" for="phone">Номер телефона:</label>
                                     <input type="text" name="phone" value="+7" title="Введите номер телефона в виде +71234567890 или 81234567890" pattern="[[\+][7],8]{1}d{10}" maxlength="12">
-
-                                    <select name="role_id" id="role-select">
-                                        @foreach($roles as $role)
-                                        <option value="{{ $role->id }}">{{ $role->name }}</option>
-                                        @endforeach
-                                    </select>
-
+                                    
                                     <button type="submit">Создать</button>
                                 </nav>
                             </form>

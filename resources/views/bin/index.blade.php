@@ -13,7 +13,6 @@
                     <div class="info subtext">
                         
                     </div>
-                    <button>Удалить</button>
                 </div>
             </div>
         </nav>
