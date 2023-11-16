@@ -22,7 +22,8 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'username'=>'required|string',
+            'name'=>'required|string',
+            'email'=>'required|string',
             'password'=>'required|string',
             'user_avatar'=>'string',
             'role_id'=>'integer'

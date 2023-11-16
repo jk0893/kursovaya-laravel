@@ -28,13 +28,14 @@ class User extends Authenticatable
         return $this->belongsTo(Role::class, 'role_id', 'id');
     }
 
-    public function employees(){
-        return $this->hasMany(Employee::class,'user_id','id');
+    public function employee(){
+        return $this->belongsTo(Role::class, 'employee_id', 'id');
     }
-
-    public function clients(){
-        return $this->hasMany(Client::class,'user_id','id');
+    
+    public function client(){
+        return $this->belongsTo(Role::class, 'client_id', 'id');
     }
+    
 
     /**
      * The attributes that should be hidden for serialization.

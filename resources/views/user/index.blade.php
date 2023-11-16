@@ -9,10 +9,10 @@
             </div>
             <div class="product-categories">
                 @foreach ($users as $user)
-                <a href="{{ route('admin.user.show', $user->id) }}" style="background: src('{{ asset($user->user_avatar) }}')"
+                <a href="{{ route('admin.user.show', $user->id) }}" style="background-image: src('{{ asset($user->user_avatar) }}')"
                     class="carto4ka-CRUD">
                     <div class="image">
-                        <p>{{ $user->username }}</p>
+                        <p>{{ $user->name }}</p>
                     </div>
                 </a>
                 @endforeach

@@ -15,14 +15,17 @@
                             <form class="create-form-form" action="{{ route('admin.user.store') }}" method="POST">
                                 @csrf
                                 <nav class="create-form-nav">
-                                    <label class="modal-inputs" for="username">Логин:</label>
-                                    <input type="text" name="username" pattern="\w{3,30}">
+                                    <label class="modal-inputs" for="name">Логин:</label>
+                                    <input type="text" name="name">
+
+                                    <label class="modal-inputs" for="email">Адрес почты:</label>
+                                    <input type="email" name="email">
 
                                     <label class="modal-inputs" for="password">Пароль:</label>
-                                    <input type="password" name="password" pattern="\w{3,30}">
+                                    <input type="password" name="password">
 
                                     <label class="modal-inputs" for="avatar">Аватарка:</label>
-                                    <input type="file" name="user_avatar" pattern="\w">
+                                    <input type="file" name="user_avatar">
 
                                     <label class="modal-inputs" for="role_id">Права доступа:</label>
                                     <select name="role_id" id="role-select">

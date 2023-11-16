@@ -48,7 +48,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
 
 });
 
-Route::group(['middleware' => 'Employee'], function () {
+Route::group(['middleware' => 'employee'], function () {
     Route::group(['namespace' => 'Order'], function () {
         Route::get('/orders', [App\Http\Controllers\OrderController::class, 'getAll'])->name('order.index');
         Route::get('/orders/create', [App\Http\Controllers\OrderController::class, 'create'])->name('order.create');

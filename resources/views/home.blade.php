@@ -15,7 +15,7 @@
                                 @if (Auth::user()->role_id === 1)
                                     <p>Права пользователя:</p>
                                 @endif
-                                <p>фамилия:</p>
+                                <p>Адрес почты:</p>
                                 <p>отчество:</p>
                                 <p>дата рождения:</p>
                                 <p>номер телефона:</p>
@@ -24,7 +24,7 @@
                                 @if (Auth::user()->role_id === 1)
                                     <p>{{ Auth::user()->role->name }}</p>
                                 @endif
-                                <p>last-name</p>
+                                <p>{{Auth::user()->email}}</p>
                                 <p>father-name</p>
                                 <p>birth-date</p>
                                 <p>phone-number</p>

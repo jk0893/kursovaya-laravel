@@ -12,7 +12,7 @@ class Employee extends Model
     use SoftDeletes;
     protected $guarded = [];
 
-    public function user(){
-        return $this->belongsTo(Role::class, 'user_id', 'id');
+    public function users(){
+        return $this->hasMany(Employee::class,'employee_id','id');
     }
 }

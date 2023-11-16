@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('father_name')->default('NULL');
-            $table->foreignId('user_id')->nullable()->constrained();
             $table->date('birth_date');
             $table->string('passport')->unique;
             $table->string('phone')->unique;
@@ -30,9 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('clients', function (Blueprint $table) {
-            $table->dropConstrainedForeignId('user_id');
-        });
         Schema::dropIfExists('clients');
     }
 };

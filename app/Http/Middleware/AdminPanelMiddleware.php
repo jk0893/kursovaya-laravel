@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class AdminPanelMiddleware
 {
@@ -15,9 +16,15 @@ class AdminPanelMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->user()->role_id !== 1){
-            return redirect()->route('home');
+        if (Auth::check()){
+            if (auth()->user()->role_id !== 1){
+                return redirect()->route('main.index');
+            }
         }
+        else {
+            return redirect()->route('main.index');
+        }
+        
         return $next($request);
     }
 }

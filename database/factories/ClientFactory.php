@@ -21,7 +21,6 @@ class ClientFactory extends Factory
             'last_name' => $this->faker->lastName,
             'first_name' => $this->faker->firstName,
             'father_name'=> $this->faker->firstName,
-            'user_id' => User::get()->random()->id,
             'birth_date' => $this->faker->date,
             'passport' => random_int(1000000000, 9999999999),
             'phone'=> $this->faker->phoneNumber
