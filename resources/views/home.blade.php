@@ -35,7 +35,7 @@
                 @if (Auth::user()->role_id === 1)
                     <div class="buttons">
                         <a href="{{ route('admin.user.index') }}" class="button">Пользователи</a>
-                        <a href="{{ route('product.index') }}" class="button">Товары</a>
+                        <a href="{{ route('admin.product.index') }}" class="button">Товары</a>
                         <a href="{{ route('admin.employee.index') }}" class="button">Сотрудники</a>
                         <a href="{{ route('order.index') }}" class="button">Заказы</a>
                     </div>

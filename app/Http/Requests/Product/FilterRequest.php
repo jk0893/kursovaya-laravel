@@ -22,9 +22,9 @@ class FilterRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string',
-            'count' => 'required|integer',
-            'price' => 'required|integer',
+            'name' => 'string',
+            'count' => 'integer',
+            'price' => 'integer',
             'image' => 'string',
             'category_id' => 'integer'
         ];

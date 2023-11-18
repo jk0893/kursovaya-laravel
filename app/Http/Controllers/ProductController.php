@@ -13,15 +13,16 @@ use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function getAll(FilterRequest $request)
+    // public function getAll(FilterRequest $request)
+    public function getAll()
     {
-        // $products = Product::paginate(12);
-        // return view("product.index", compact("products"));
+        $products = Product::paginate(12);
+        return view("product.index", compact("products"));
 
-        $data = $request->validated();
-        $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
-        $products = Product::filter($$filter)->paginate(12);
-        dd($products);
+        // $data = $request->validated();
+        // $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
+        // $products = Product::filter($filter)->paginate(12);
+        // return view('product.index', compact('products'));
     }
 
     public function create()

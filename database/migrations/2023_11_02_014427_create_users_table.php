@@ -27,7 +27,7 @@ return new class extends Migration
         });
 
         DB::table('users')->insert([
-            'name'=> 'root',
+            ['name'=> 'root', 'email' => 'root@gmail.com', 'password' => bcrypt('rootroot'), 'role_id' => 1]
         ]);
     }
 

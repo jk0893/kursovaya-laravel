@@ -5,11 +5,11 @@
     <section class="main-content">
         <nav class="main-content-nav">
             <div class="buttons">
-                <a class="button" href="{{ route('product.create') }}">Добавить товар</a>
+                <a class="button" href="{{ route('admin.product.create') }}">Добавить товар</a>
             </div>
             <div class="product-categories">
                 @foreach ($products as $product)
-                <a href="{{ route('product.show', $product->id) }}" class="carto4ka-CRUD">
+                <a href="{{ route('admin.product.show', $product->id) }}" class="carto4ka-CRUD">
                     <div class="image">
                         <p>{{ $product->name }}</p> 
                     </div>

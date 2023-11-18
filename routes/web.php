@@ -39,8 +39,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
     });
 
     Route::group(['namespace' => 'Product'], function () {
+        Route::get('/products', [App\Http\Controllers\ProductController::class, 'getAll'])->name('admin.product.index');
         Route::get('/products/create', [App\Http\Controllers\ProductController::class, 'create'])->name('admin.product.create');
         Route::post('/products', [App\Http\Controllers\ProductController::class, 'store'])->name('admin.product.store');
+        Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('admin.product.show');
         Route::get('/products/{product}/edit', [App\Http\Controllers\ProductController::class, 'edit'])->name('admin.product.edit');
         Route::patch('/products/{product}', [App\Http\Controllers\ProductController::class, 'update'])->name('admin.product.update');
         Route::delete('/products/{product}', [App\Http\Controllers\ProductController::class, 'delete'])->name('admin.product.delete');
@@ -61,8 +63,8 @@ Route::group(['middleware' => 'employee'], function () {
 
 });
 
-Route::get('/products', [App\Http\Controllers\ProductController::class, 'getAll'])->name('product.index');
-Route::get('/products/{product}', [App\Http\Controllers\ProductController::class, 'show'])->name('product.show');
+Route::get('/catalogue', [App\Http\Controllers\CatalogueController::class, 'getAll'])->name('catalogue.index');
+Route::get('/catalogues/{catalogue}', [App\Http\Controllers\CatalogueController::class, 'show'])->name('catalogue.show');
 
 // --------------------------Bin--------------------
 

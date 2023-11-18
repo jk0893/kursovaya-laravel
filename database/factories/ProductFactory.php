@@ -19,6 +19,7 @@ class ProductFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'description'=> $this->faker->text,
             'count' => $this->faker->numberBetween(1,10000),
             'price'=> $this->faker->numberBetween(1,999999),
             'image' => $this->faker->imageUrl,
