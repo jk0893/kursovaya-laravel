@@ -6,9 +6,8 @@
             <nav class="main-content-nav">
                 <div class="catalogue-sections">
                     <section class="filters">
-                        <input type="search" name="name" id="name" placeholder="Поиск">
                         <div class="filter-items">
-
+                            <input type="search" name="name" id="name" placeholder="Поиск">
                         </div>
                     </section>
                     <section class="catalogue">
