@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ClientStoreRequest;
-use App\Http\Requests\ClientUpdateRequest;
+use App\Http\Requests\Client\StoreRequest;
+use App\Http\Requests\Client\UpdateRequest;
 use App\Models\Client;
 
 class ClientController extends Controller
 {
     public function getAll()
-    {
+    {   
         $clients = Client::paginate(12);
         return view('client.index', compact('clients'));
     }
@@ -19,11 +19,11 @@ class ClientController extends Controller
         return view('client.create');
     }
 
-    public function store(ClientStoreRequest $request)
+    public function store(StoreRequest $request)
     {
         $data = $request->validated();
         Client::create($data);
-        return redirect()->route('client.index');
+        return redirect()->route('admin.client.index');
     }
 
     public function show(Client $client)
@@ -36,7 +36,7 @@ class ClientController extends Controller
         return view('client.edit', compact('client'));
     }
 
-    public function update(Client $client, ClientUpdateRequest $request)
+    public function update(Client $client, UpdateRequest $request)
     {
         $data = $request->validated();
         $client->update($data);

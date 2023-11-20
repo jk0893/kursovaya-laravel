@@ -4,7 +4,7 @@
     <section class="main-content">
         <nav class="main-content-nav">
             <div class="buttons">
-                <a class="button" href="{{ route('client.index') }}">Вернуться</a>
+                <a class="button" href="{{ route('admin.client.index') }}">Вернуться</a>
             </div>
             <div class="user-info" >
                 <div class="card">
@@ -30,9 +30,9 @@
                         </div>
                     </div>
                     <div class="buttons">
-                        <a class="button" href="{{ route('client.edit', $client->id) }}">Изменить</a>
+                        <a class="button" href="{{ route('admin.client.edit', $client->id) }}">Изменить</a>
 
-                        <form action="{{ route('client.delete', $client->id) }}" method="post">
+                        <form action="{{ route('admin.client.delete', $client->id) }}" method="post">
                             @csrf
                             @method('delete')
                             <input class="button" type="submit" value="Удалить">

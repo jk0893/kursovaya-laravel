@@ -20,6 +20,8 @@
                                     <p>{{ $product->description }}</p>
                                 </article>
                             </section>
+
+                            <a href="{{route('bin.store')}}" style="" class="button">Заказать</a>
                         </div>
                     </section>
                 </div>

@@ -17,6 +17,6 @@ class Client extends Model
     }
 
     public function orders(){
-        return $this->belongsToMany(Order::class, "client_orders", 'client_id', 'order_id');
+        return $this->hasMany(Order::class, "client_orders", 'client_id', 'order_id');
     }
 }

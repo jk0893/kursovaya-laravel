@@ -68,10 +68,12 @@ Route::get('/catalogue/{product}', [App\Http\Controllers\CatalogueController::cl
 
 // --------------------------Bin--------------------
 
-Route::get('/bin', [App\Http\Controllers\BinController::class, 'getAll'])->name('bin.index');
-Route::post('/bin', [App\Http\Controllers\BinController::class, 'store'])->name('bin.store');
-Route::patch('/bin/{product}', [App\Http\Controllers\BinController::class, 'update'])->name('bin.update');
-Route::delete('/bin/{product}', [App\Http\Controllers\BinController::class, 'delete'])->name('bin.delete');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/bin', [App\Http\Controllers\BinController::class, 'getAll'])->name('bin.index');
+    Route::get('/bin/{order}', [App\Http\Controllers\BinController::class, 'getAll'])->name('bin.show');
+});
+
+
 
 // --------------------------Auth--------------------
 Auth::routes();

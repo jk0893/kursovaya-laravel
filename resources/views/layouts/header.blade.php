@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+{{-- <?php dd($catalogues); ?> --}}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,16 +20,26 @@
                 <h1 class="logo-text-header">chopik.ru</h1>
             </a>
         </div>
+        <div>
+            <p>Адрес: г. Иркутск, ул. Тимирязева, 40</p>
+            <p>Телефон: +7 (914) 328-43-00 </p>
+        </div>
     </div>
 
     <div class="header-right-side">
-        <div class="bin-header">
+        <div>
+            <form action={{ route('catalogue.index') }} method="GET" class="header-search-bar">
+                <input type="search" name="name" id="name" placeholder="Поиск">
+                <input class="button" style="scale: 0.6" type="submit" value="Найти">
+            </form>
+        </div>
+        <div class="header-bin">
             <a href="{{ route('bin.index') }}">
                 <img class="bin-icon-header" src="{{ asset('/images/icons/bin-icon.png') }}">
                 <div class="subtext">Kopзинa</div>
             </a>
         </div>
-        <div class="avatar-header">
+        <div class="header-avatar">
             @if (Auth::check())
                 <a href="#openModalAuth">
                     <img class="avatar-icon-header" src="{{ asset('/images/icons/avatar-icon.png') }}">
@@ -53,12 +65,15 @@
             </div>
             <div class="modal-body">
                 @if (Route::has('login'))
-                    <form method="POST" action="{{ route('login') }}" class="modal-form" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('login') }}" class="modal-form"
+                        enctype="multipart/form-data">
                         @csrf
                         <nav class="modal-nav">
                             <div class="modal-inputs">
                                 <label for="email">Адрес почты:</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email"
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -67,7 +82,9 @@
                             </div>
                             <div class="modal-inputs">
                                 <label for="password">Пароль:</label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    required autocomplete="current-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -14,21 +14,22 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
+            $table->string('shorts')->unique();
         });
 
         DB::table('categories')->insert([
-            ['name'=> 'Видеокарты'],
-            ['name'=> 'Материнские платы'],
-            ['name'=> 'Процессоры'],
-            ['name'=> 'Оперативная память'],
-            ['name'=> 'Блоки питания'],
-            ['name'=> 'Накопители'],
-            ['name'=> 'Охлаждение'],
-            ['name'=> 'Корпусы'],
-            ['name'=> 'Мониторы'],
-            ['name'=> 'Клавиатуры'],
-            ['name'=> 'Мыши'],
-            ['name'=> 'Готовые сборки']
+            ['name'=> 'Видеокарты', 'shorts' => 'gpu'],
+            ['name'=> 'Материнские платы', 'shorts' => 'mb'],
+            ['name'=> 'Процессоры', 'shorts' => 'cpu'],
+            ['name'=> 'Оперативная память', 'shorts' => 'ram'],
+            ['name'=> 'Блоки питания', 'shorts' => 'psu'],
+            ['name'=> 'Накопители', 'shorts' => 'ssd'],
+            ['name'=> 'Охлаждение', 'shorts' => 'cool'],
+            ['name'=> 'Корпусы', 'shorts' => 'case'],
+            ['name'=> 'Мониторы', 'shorts' => 'monitor'],
+            ['name'=> 'Клавиатуры', 'shorts' => 'kb'],
+            ['name'=> 'Мыши', 'shorts' => 'mouse'],
+            ['name'=> 'Готовые сборки', 'shorts' => 'premades']
         ]);
     }
 

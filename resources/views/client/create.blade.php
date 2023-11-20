@@ -12,11 +12,10 @@
                         </div>
 
                         <div class="create-form-body">
-                            <form class="create-form-form" action="{{ route('client.store') }}" method="POST">
+                            <form class="create-form-form" action="{{ route('admin.client.store') }}" method="POST">
                                 @csrf
                                 <nav class="create-form-nav">
                                     <div>
-                                        <input name="role_id" value="4" hidden>
                                         <label class="modal-inputs" for="last_name">Фамилия</label>
                                         <input value="{{ old('last_name') }}" type="text" name="last_name">    
                                         @error('last_name')

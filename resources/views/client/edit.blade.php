@@ -12,7 +12,7 @@
                         </div>
 
                         <div class="create-form-body">
-                            <form class="create-form-form" action="{{ route('client.update', $client->id) }}" method="POST">
+                            <form class="create-form-form" action="{{ route('admin.client.update', $client->id) }}" method="POST">
                                 @csrf
                                 @method('patch')
                                 <nav class="create-form-nav">
@@ -29,7 +29,7 @@
                                     <input type="date" name="birth_date" value="{{ $client->birth_date }}">
 
                                     <label class="modal-inputs" for="passport">Паспорт:</label>
-                                    <input type="text" name="passport" pattern="\d{10,10}" title="Введите 10 цифр без пробелов" value="{{ $emclientployee->passport }}">
+                                    <input type="text" name="passport" pattern="\d{10,10}" title="Введите 10 цифр без пробелов" value="{{ $client->passport }}">
 
                                     <label class="modal-inputs" for="phone">Номер телефона:</label>
                                     <input type="text" name="phone" title="Введите номер телефона в виде +71234567890 или 81234567890" pattern="[[\+][7],8]{1}d{10}" maxlength="12" value="{{ $client->phone }}">

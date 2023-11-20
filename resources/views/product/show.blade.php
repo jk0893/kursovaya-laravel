@@ -17,6 +17,9 @@
                             {{ $product->description }}
                         </article>
                     </div>
+                    <div>
+                        {{ $product->category->name}}
+                    </div>
                     <div class="buttons">
                         <a class="button" href="{{ route('admin.product.edit', $product->id) }}">Изменить</a>
 

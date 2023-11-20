@@ -8,13 +8,13 @@
                     <div class="bin">
                         <div class="bin-header">
                             <img class="bin-icon" src="{{ asset('images/icons/bin-icon.png') }}" width="100">
-                            <h1 class="logo-text-header">Корзина</h1>
+                            <h1 class="logo-text-header">Заказ №{{$order->id}}</h1>
                         </div>
                         <section class="bin-content">
                             @foreach ($orders as $order)
                             <div class="bin-item">
                                 <div class="bin-info">
-                                    <p>Заказ №{{$order->id}}</p>
+                                    <p>Заказ: {{$order->id}}</p>
                                     <article>
                                         {{$order->address}}
                                     </article>

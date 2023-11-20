@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product;
 use App\Models\Order;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
@@ -19,7 +19,7 @@ class CatalogueController extends Controller
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
         $catalogues = Product::filter($filter)->paginate(6);
         $categories = Category::all();
-        return view('catalogue.index', compact('catalogues', 'categories'));
+        return view('catalogue.index', compact('catalogues','categories'));
     }
 
     public function show(Product $product)

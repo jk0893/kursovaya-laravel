@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Seeder;
 use App\Models\Client;
 use App\Models\User;
@@ -17,10 +18,16 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(50)->create();
-        Product::factory(50)->create();
-        Employee::factory(50)->create();
-        Client::factory(50)->create();
-        Order::factory(50)->create();
+        User::factory(75)->create();
+        Product::factory(100)->create();
+        Employee::factory(75)->create();
+        $clients = Client::factory(75)->create();
+        $orders = Order::factory(100)->create();
+
+        foreach($orders as $order){
+            $client_id = $clients->random(1)->pluck('id');
+            $order->clients()->associate($client_id);
+        }
+        
     }
 }
