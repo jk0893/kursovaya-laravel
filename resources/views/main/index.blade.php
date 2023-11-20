@@ -7,7 +7,6 @@
                 <h1>Kaтeгopии товаров</h1>
                 <div class="product-categories">
                     <a class="carto4ka" href="{{ route('catalogue.index') }}">
-                        <input value="1" name="category_id"hidden>
                         <div class="gpu">
                             <p class="subtext-cards">Видеокарты</p>
                         </div>

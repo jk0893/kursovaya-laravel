@@ -64,7 +64,7 @@ Route::group(['middleware' => 'employee'], function () {
 });
 
 Route::get('/catalogue', [App\Http\Controllers\CatalogueController::class, 'getAll'])->name('catalogue.index');
-Route::get('/catalogues/{catalogue}', [App\Http\Controllers\CatalogueController::class, 'show'])->name('catalogue.show');
+Route::get('/catalogue/{product}', [App\Http\Controllers\CatalogueController::class, 'show'])->name('catalogue.show');
 
 // --------------------------Bin--------------------
 

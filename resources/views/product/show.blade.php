@@ -13,20 +13,9 @@
                         <h1>{{ $product->name }}</h1>
                     </div>
                     <div class="info subtext">
-                        <div class="info-left-side">
-                            <p>имя:</p>
-                            <p>фамилия:</p>
-                            <p>отчество:</p>
-                            <p>дата рождения:</p>
-                            <p>номер телефона:</p>
-                        </div>
-                        <div class="info-right-side">
-                            <p>first-name</p>
-                            <p>last-name</p>
-                            <p>father-name</p>
-                            <p>birth-date</p>
-                            <p>phone-number</p>
-                        </div>
+                        <article>
+                            {{ $product->description }}
+                        </article>
                     </div>
                     <div class="buttons">
                         <a class="button" href="{{ route('admin.product.edit', $product->id) }}">Изменить</a>
