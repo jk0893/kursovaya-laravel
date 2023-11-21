@@ -12,7 +12,7 @@ class Order extends Model
     use SoftDeletes;
     protected $guarded = [];
 
-    public function clients(){
+    public function client(){
         return $this->belongsTo(Client::class);
     }
 

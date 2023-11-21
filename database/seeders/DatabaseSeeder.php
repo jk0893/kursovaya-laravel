@@ -21,13 +21,15 @@ class DatabaseSeeder extends Seeder
         User::factory(75)->create();
         Product::factory(100)->create();
         Employee::factory(75)->create();
-        $clients = Client::factory(75)->create();
-        $orders = Order::factory(100)->create();
+        Client::factory(75)->create();
+        Order::factory(100)->create();
+        // $clients = Client::factory(75)->create();
+        // $orders = Order::factory(100)->create();
 
-        foreach($orders as $order){
-            $client_id = $clients->random(1)->pluck('id');
-            $order->clients()->associate($client_id);
-        }
+        // foreach($orders as $order){
+        //     $client_id = $clients->random(1)->pluck('id');
+        //     $order->clients()->associate($client_id);
+        // }
         
     }
 }

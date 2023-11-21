@@ -1,6 +1,7 @@
 /*--------global-settings------*/
 :root {
-    --background-color: #f0f0f0;
+    --background-primary-color: #e4e4e4;
+    --background-secondary-color: #f0f0f0;
     --header-background-color: #fad9a6;
     --text-color: #b77600;
     --footer-color: #313131;
@@ -23,7 +24,7 @@ body {
 }
 
 body {
-    background: var(--background-color);
+    background: var(--background-primary-color);
 }
 
 h1 {
@@ -800,7 +801,7 @@ label {
 .button {
     font-size: 1.25rem;
     color: var(--text-color);
-    background-color: var(--background-color);
+    background-color: var(--background-secondary-color);
     border: transparent;
     box-shadow: var(--box-shadow-small);
     border-radius: 1rem;
@@ -853,7 +854,6 @@ label {
 .catalogue-filters{
     display: flex;
     flex-direction: column;
-    background-color: #ececec;
     gap: 1rem;
     align-items: center;
 }
@@ -900,7 +900,7 @@ label {
     padding: 2rem;
     text-align: center;
     border-radius: 1rem;
-    background-color: var(--background-color);
+    background-color: var(--background-secondary-color);
     box-shadow: var(--box-shadow-small);
     color: var(--text-color);
 }
@@ -939,7 +939,7 @@ label {
     box-shadow: var(--box-shadow-small);
     border-radius: 1rem;
     padding: 2rem;
-    background-color: var(--background-color);
+    background-color: var(--background-secondary-color);
 }
 
 .catalogue-items img {
@@ -968,7 +968,7 @@ label {
     margin: 10rem;
     padding: 5rem;
     border-radius: 2.1875rem;
-    background-color: var(--background-color);
+    background-color: var(--background-secondary-color);
     box-shadow: var(--box-shadow-big);
 }
 
@@ -1004,7 +1004,7 @@ label {
     flex-direction: column;
     width: min(90%, 70rem);
     padding: 2rem 5rem;
-    background-color: var(--background-color);
+    background-color: var(--background-secondary-color);
     box-shadow: var(--box-shadow-big);
     border-radius: 2.1875rem;
 }

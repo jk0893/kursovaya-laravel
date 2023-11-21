@@ -60,7 +60,6 @@ Route::group(['middleware' => 'employee'], function () {
         Route::patch('/orders/{order}', [App\Http\Controllers\OrderController::class, 'update'])->name('order.update');
         Route::delete('/orders/{order}', [App\Http\Controllers\OrderController::class, 'delete'])->name('order.delete');
     });
-
 });
 
 Route::get('/catalogue', [App\Http\Controllers\CatalogueController::class, 'getAll'])->name('catalogue.index');
@@ -68,12 +67,8 @@ Route::get('/catalogue/{product}', [App\Http\Controllers\CatalogueController::cl
 
 // --------------------------Bin--------------------
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/bin', [App\Http\Controllers\BinController::class, 'getAll'])->name('bin.index');
-    Route::get('/bin/{order}', [App\Http\Controllers\BinController::class, 'getAll'])->name('bin.show');
-});
-
-
+Route::get('/bin', [App\Http\Controllers\BinController::class, 'getAll'])->name('bin.index');
+Route::get('/bin/{order}', [App\Http\Controllers\BinController::class, 'getAll'])->name('bin.show');
 
 // --------------------------Auth--------------------
 Auth::routes();
