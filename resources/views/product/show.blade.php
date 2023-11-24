@@ -18,16 +18,16 @@
                         </article>
                     </div>
                     <div>
-                        {{ $product->category->name}}
+                        <div>
+                            Категория: {{ $product->category->name}}
+                        </div>
+                        <div>
+                            Кол-во: {{ $product->count}}
+                        </div>
                     </div>
-                    <div class="buttons">
+                    <div class="buttons down">
                         <a class="button" href="{{ route('admin.product.edit', $product->id) }}">Изменить</a>
-
-                        <form action="{{ route('admin.product.delete', $product->id) }}" method="post">
-                            @csrf
-                            @method('delete')
-                            <input class="button" type="submit" value="Удалить">
-                        </form>
+                        <a class="button" href="{{ route('admin.product.delete', $product->id) }}">Удалить</a>
                     </div>
                 </div>
             </div>

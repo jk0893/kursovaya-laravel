@@ -49,9 +49,9 @@
                                             <p>{{ $catalogue->price }}</p>
                                             {{-- <a href="{{ route('bin.store') }}"> --}}
                                                 @csrf
-                                                <img src="{{ asset('/images/icons/bin-icon.png') }}" width="100"
+                                                <img src="{{ asset('/images/icons/bin-icon.png') }}" width="100" height="100"
                                                     alt="bin icon">
-                                            </a>
+                                            {{-- </a> --}}
                                         </div>
                                     </a>
                                 </div>

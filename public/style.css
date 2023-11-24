@@ -570,6 +570,18 @@ option[value="1"] {
     border-radius: 4rem;
 }
 
+.carto4ka-CRUD{
+    width: min-content;
+}
+
+.carto4ka-CRUD > .image{
+    transition: border-radius .35s ease-in-out;
+}
+
+.carto4ka-CRUD > .image:hover{
+    border-radius: 4rem;
+}
+
 .carto4ka>div>p,
 .carto4ka-CRUD>div>p {
     -webkit-text-stroke: 0.5px var(--footer-color);

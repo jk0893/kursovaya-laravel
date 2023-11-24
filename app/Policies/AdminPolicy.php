@@ -12,7 +12,7 @@ class AdminPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        
     }
 
     /**
@@ -20,7 +20,7 @@ class AdminPolicy
      */
     public function view(User $user, User $model): bool
     {
-        return $model->role_id === 1;
+    return $model->role_id === 1;
     }
 
     /**

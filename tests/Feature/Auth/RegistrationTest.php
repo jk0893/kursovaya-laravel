@@ -4,7 +4,6 @@ namespace Tests\Feature\Auth;
 
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use SebastianBergmann\Type\VoidType;
 use Tests\TestCase;
 
 class RegistrationTest extends TestCase
@@ -25,6 +24,7 @@ class RegistrationTest extends TestCase
             'last_name' => 'test',
             'father_name' => 'test',
             'phone' => '+1(111)111-11-11',
+            'age' => 1,
             'name' => 'Test User',
             'email' => 'test@example.com',
             'password' => 'password',

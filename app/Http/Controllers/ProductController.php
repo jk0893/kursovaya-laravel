@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
         $data = $request->validated();
         $filter = app()->make(ProductFilter::class, ['queryParams' => array_filter($data)]);
-        $products = Product::filter($filter)->paginate(12);
+        $products = Product::filter($filter)->paginate(15);
         return view('product.index', compact('products'));
     }
 
